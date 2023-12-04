@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+    <div id="placeholder"></div>
+    <div id="placeholder1"></div>
+    <script>
+        /*
+        Задание:
+        Выполните рефакторинг кода. Сделайте так, чтобы объекты создавались не через литералы, а через функцию конструктор.
+        */
+        // function User(name, sourname){
+        //     this.name = name;
+        //     this.sourname = sourname;
+        // }
+        // const user = new User("Ivan","Ivanov");
+        // const user3 = new User("Olga","Petrova");
+        // console.log(user);
+        // console.log(user3);
+
+
+        function User(name, sourname) {
+            this.name = name;
+            this.sourname = sourname;
+
+            this.showStats = function (element) {
+                element.insertAdjacentHTML("beforeend", `${this.name}<br />`);
+                element.insertAdjacentHTML("beforeend", `${this.sourname}<br />`);
+            };
+        }
+        let user1 = new User("Ivan", "Ivanov");
+        let user2 = new User("Olga", "Petrova");
+
+
+        let placeholder1 = document.querySelector("#placeholder");
+        let placeholder2 = document.querySelector("#placeholder1");
+
+        user1.showStats(placeholder);
+        user2.showStats(placeholder1);
+
+
+
+        // let user1 = {
+        //     firstName: "Ivan",
+        //     lastName: "Ivanov",
+
+        //     showStats: function (element) {
+        //         element.insertAdjacentHTML("beforeend", `${this.firstName}<br />`);
+        //         element.insertAdjacentHTML("beforeend", `${this.lastName}<br />`);
+        //     }
+        // };
+        // let placeholder = document.querySelector("#placeholder");
+        // user1.showStats(placeholder);
+
+
+        // let user2 = {
+        //     firstName: "Olga",
+        //     lastName: "Petrova",
+
+        //     showStats: function (element) {
+        //         element.insertAdjacentHTML("beforeend", `${this.firstName}<br />`);
+        //         element.insertAdjacentHTML("beforeend", `${this.lastName}<br />`);
+        //     }
+        // };
+        // let placeholder1 = document.querySelector("#placeholder");
+        // user1.showStats(placeholder1);
+
+    </script>
+</body>
+
+</html>

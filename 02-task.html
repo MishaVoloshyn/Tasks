@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+</head>
+
+<body>
+
+    <div id="placeholder"></div>
+    <div id="placeholder1"></div>
+    <script>
+        /*
+        Задание:
+        Выполните рефакторинг кода. Замените фабричный метод createUser на функцию конструктор.
+        */
+
+        function CreateUser(login, email) {
+            this.login = login;
+            this.email = email;
+
+            this.showStats = function (element) {
+                element.insertAdjacentHTML("beforeend", `${this.login}<br />`);
+                element.insertAdjacentHTML("beforeend", `${this.email}<br />`);
+            };
+        }
+        let createUser1 = new CreateUser("admin", "admin@example.com");
+        let createUser2 = new CreateUser("user", "user@example.com");
+
+
+        let placeholder1 = document.querySelector("#placeholder");
+        let placeholder2 = document.querySelector("#placeholder1");
+
+        createUser1.showStats(placeholder);
+        createUser2.showStats(placeholder1);
+
+
+        // function createUser(login, email) {
+        //     return {
+        //         login: login,
+        //         email: email,
+
+        //         showContactInfo: function () {
+        //             console.log("Мой логин " + this.login + ", мой email " + this.email);
+        //         }
+        //     }
+        // }
+
+        // let user1 = createUser("admin", "admin@example.com");
+        // let user2 = createUser("user", "user@example.com");
+
+        // user1.showContactInfo();
+        // user2.showContactInfo();
+    </script>
+</body>
+
+</html>
